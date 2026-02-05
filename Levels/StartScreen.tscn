@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsulry8hgqrbr"]
+
+[ext_resource type="Script" uid="uid://dytac6vmvjusi" path="res://Levels/new_button.gd" id="1_v7b2h"]
+
+[sub_resource type="FontFile" id="FontFile_yiddv"]
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/120/0/ascent = 0.0
+cache/0/120/0/descent = 0.0
+cache/0/120/0/underline_position = 0.0
+cache/0/120/0/underline_thickness = 0.0
+cache/0/120/0/scale = 1.0
+cache/0/250/0/ascent = 0.0
+cache/0/250/0/descent = 0.0
+cache/0/250/0/underline_position = 0.0
+cache/0/250/0/underline_thickness = 0.0
+cache/0/250/0/scale = 1.0
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.99871266, 1.0045432)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1858.3925
+offset_bottom = 1039.2784
+color = Color(0.22930995, 0.1917026, 0.25655144, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 154.0
+offset_right = 1858.3925
+offset_bottom = 487.0
+theme_override_fonts/font = SubResource("FontFile_yiddv")
+theme_override_font_sizes/font_size = 250
+text = "NIGHT'S QUEST"
+horizontal_alignment = 1
+
+[node name="Load_Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 982.0
+offset_top = 612.0
+offset_right = 1489.0
+offset_bottom = 723.0
+theme_override_font_sizes/font_size = 75
+text = "LOAD GAME"
+
+[node name="New_Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 613.0
+offset_right = 905.0
+offset_bottom = 724.0
+theme_override_font_sizes/font_size = 75
+text = "NEW GAME"
+script = ExtResource("1_v7b2h")

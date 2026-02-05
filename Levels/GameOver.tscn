@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgw8x8lmlp17d"]
+
+[ext_resource type="Script" uid="uid://u5r4b1v7ey1v" path="res://Levels/quit_button.gd" id="1_l8e1j"]
+[ext_resource type="Script" uid="uid://drs34oy0v4smr" path="res://Levels/home_button.gd" id="1_m8yab"]
+
+[sub_resource type="FontFile" id="FontFile_yiddv"]
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/120/0/ascent = 0.0
+cache/0/120/0/descent = 0.0
+cache/0/120/0/underline_position = 0.0
+cache/0/120/0/underline_thickness = 0.0
+cache/0/120/0/scale = 1.0
+cache/0/300/0/ascent = 0.0
+cache/0/300/0/descent = 0.0
+cache/0/300/0/underline_position = 0.0
+cache/0/300/0/underline_thickness = 0.0
+cache/0/300/0/scale = 1.0
+cache/0/250/0/ascent = 0.0
+cache/0/250/0/descent = 0.0
+cache/0/250/0/underline_position = 0.0
+cache/0/250/0/underline_thickness = 0.0
+cache/0/250/0/scale = 1.0
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0055037, 0.99562347)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1845.8411
+offset_bottom = 1048.1487
+color = Color(0.22930995, 0.1917026, 0.25655144, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 154.0
+offset_right = 1845.8411
+offset_bottom = 487.0
+theme_override_fonts/font = SubResource("FontFile_yiddv")
+theme_override_font_sizes/font_size = 250
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Quit_Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 971.0
+offset_top = 628.0
+offset_right = 1436.0
+offset_bottom = 739.0
+theme_override_font_sizes/font_size = 75
+text = "QUIT GAME"
+script = ExtResource("1_l8e1j")
+
+[node name="Home_Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 628.0
+offset_right = 848.0
+offset_bottom = 739.0
+theme_override_font_sizes/font_size = 75
+text = "HOME"
+script = ExtResource("1_m8yab")

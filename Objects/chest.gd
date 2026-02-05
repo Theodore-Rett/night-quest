@@ -1,0 +1,3 @@
+extends StaticBody2D
+
+enum CHEST_STATE {UNOPENED, LOCKED, OPEN, LOOTED}
