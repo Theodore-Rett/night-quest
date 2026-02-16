@@ -54,5 +54,5 @@ func update_animation_parameters(move_input : Vector2):
 		animation_tree.set("parameters/float/blend_position", move_input)
 		
 func attack() -> void:
-	player.take_damage(attack_amount)
+	player.take_damage(attack_amount, global_position)
 	attack_timer = attack_cooldown

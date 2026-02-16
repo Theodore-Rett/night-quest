@@ -38,5 +38,5 @@ func _physics_process(_delta):
 			attack()
 	
 func attack() -> void:
-	player.take_damage(attack_amount)
+	player.take_damage(attack_amount, global_position)
 	attack_timer = attack_cooldown

@@ -10,10 +10,24 @@ extends CharacterBody2D
 
 signal health_changed(new_health : int)
 
+var knockback_timer : float = 0.0
+var knockback_duration : float = 0.0
+var knockback_velocity : Vector2 = Vector2.ZERO
+
 func _ready():
 	update_animation_parameters(starting_direction)
 
 func _physics_process(_delta):
+	if knockback_timer > 0.0:
+		knockback_timer -= _delta
+		# Ease-out (quadratic): progress from 1 to 0
+		var progress = knockback_timer / knockback_duration
+		var eased_progress = progress * progress
+		velocity = knockback_velocity * eased_progress
+		move_and_slide()
+		pick_new_state()
+		return
+
 	var input_direction = Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -38,9 +52,10 @@ func pick_new_state():
 	else:
 		state_machine.travel("Idle")
 
-func take_damage(amount : int) -> void:
+func take_damage(amount : int, attacker_position : Vector2 = Vector2.ZERO) -> void:
 	current_health = max(0, current_health - amount)
 	health_changed.emit(current_health)
+	knockback(attacker_position, 400)
 	
 	# Check if player died
 	if current_health <= 0:
@@ -49,3 +64,9 @@ func take_damage(amount : int) -> void:
 func heal(amount : int) -> void:
 	current_health = min(max_health, current_health + amount)
 	health_changed.emit(current_health)
+
+func knockback(attacker_position : Vector2, kb_force : float = 300):
+	knockback_duration = 0.2
+	var kb_direction = (global_position - attacker_position).normalized() * kb_force
+	knockback_velocity = kb_direction
+	knockback_timer = knockback_duration

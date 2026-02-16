@@ -5,7 +5,8 @@ extends ProgressBar
 func _ready() -> void:
 	# Auto-find player if not assigned
 	if not player:
-		player = get_parent().get_parent()
+		# ProgressBar > MarginContainer > CanvasLayer > Camera2D > Player
+		player = get_parent().get_parent().get_parent().get_parent()
 	
 	# Initialize the progress bar with player's current health
 	max_value = player.max_health

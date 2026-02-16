@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://cl4jbg5cf1k51"]
+[gd_scene load_steps=29 format=3 uid="uid://bxke47p8qi45f"]
 
-[ext_resource type="Script" uid="uid://blvp40w358w8u" path="res://MC.gd" id="1_r7cw0"]
+[ext_resource type="Script" uid="uid://ell5iko0uq7n" path="res://player.gd" id="1_r7cw0"]
 [ext_resource type="Texture2D" uid="uid://d2lj1bcb011er" path="res://Assets/MCSpriteStage1-Sheet.png" id="2_r7cw0"]
 [ext_resource type="PackedScene" uid="uid://bfcf7wudmwlqh" path="res://GUI/PlayerOverlay.tscn" id="3_dkpq6"]
 
@@ -232,9 +232,9 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_qgpvd")
 states/Walk/position = Vector2(476, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_filap"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_r7cw0"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_dkpq6")]
 
-[node name="MC" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D"]
 script = ExtResource("1_r7cw0")
-speed = 250.0
+speed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)

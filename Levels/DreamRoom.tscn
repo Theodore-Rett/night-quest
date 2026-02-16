@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=4 uid="uid://bgpe3biy64qh2"]
 
 [ext_resource type="Texture2D" uid="uid://bdmi43dai70ro" path="res://Assets/StoneWall-Sheet.png" id="1_ag5rx"]
-[ext_resource type="PackedScene" uid="uid://cl4jbg5cf1k51" path="res://MC.tscn" id="1_f5556"]
 [ext_resource type="Texture2D" uid="uid://by1l0n8316dc3" path="res://Assets/StoneFloor-Sheet.png" id="2_4gx3l"]
 [ext_resource type="PackedScene" uid="uid://bepp2ols8wdda" path="res://Objects/Chest.tscn" id="3_4gx3l"]
 [ext_resource type="PackedScene" uid="uid://b6dum0s5dhuwd" path="res://Enemies/Terror.tscn" id="4_kaa0g"]
+[ext_resource type="PackedScene" uid="uid://bxke47p8qi45f" path="res://player.tscn" id="6_ag5rx"]
 [ext_resource type="PackedScene" uid="uid://b2vksc0fvfx1u" path="res://Enemies/shade.tscn" id="6_yhakw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ag5rx"]
@@ -564,11 +564,6 @@ tile_set = SubResource("TileSet_kaa0g")
 [node name="Chest" parent="." instance=ExtResource("3_4gx3l")]
 position = Vector2(965, 213)
 
-[node name="MC" parent="." instance=ExtResource("1_f5556")]
-motion_mode = 1
-speed = 150.0
-starting_direction = Vector2(0, 0)
-
 [node name="Terror" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_kaa0g")]
 position = Vector2(960, 604)
 motion_mode = 1
@@ -587,3 +582,5 @@ detection_distance = 300.0
 attack_distance = 40.0
 attack_cooldown = 1.5
 player = NodePath("../MC")
+
+[node name="MC" parent="." instance=ExtResource("6_ag5rx")]
