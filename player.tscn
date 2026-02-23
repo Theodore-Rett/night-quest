@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://bxke47p8qi45f"]
 
 [ext_resource type="Script" uid="uid://ell5iko0uq7n" path="res://player.gd" id="1_r7cw0"]
-[ext_resource type="Texture2D" uid="uid://d2lj1bcb011er" path="res://Assets/MCSpriteStage1-Sheet.png" id="2_r7cw0"]
+[ext_resource type="Texture2D" uid="uid://vubcpm616ff6" path="res://Assets/PlayerStage1-Sheet.png" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://bfcf7wudmwlqh" path="res://GUI/PlayerOverlay.tscn" id="3_dkpq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkpq6"]
@@ -36,7 +36,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [4, 5]
+"values": [2, 10]
 }
 
 [sub_resource type="Animation" id="Animation_r7cw0"]
@@ -53,7 +53,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [0, 8]
 }
 
 [sub_resource type="Animation" id="Animation_in171"]
@@ -70,7 +70,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [6, 7]
+"values": [9, 1]
 }
 
 [sub_resource type="Animation" id="Animation_rfg37"]
@@ -87,7 +87,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 3]
+"values": [1, 9]
 }
 
 [sub_resource type="Animation" id="Animation_iqihm"]
@@ -104,7 +104,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.26666668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [12, 13]
+"values": [14, 6]
 }
 
 [sub_resource type="Animation" id="Animation_xxtvq"]
@@ -121,11 +121,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.26666668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [8, 9]
+"values": [12, 4]
 }
 
 [sub_resource type="Animation" id="Animation_y8l0h"]
 resource_name = "walk_left"
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -134,14 +135,15 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.26666668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [14, 15]
+"values": [7, 15]
 }
 
 [sub_resource type="Animation" id="Animation_abh3m"]
 resource_name = "walk_right"
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -150,10 +152,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.26666668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [10, 11]
+"values": [5, 13]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xxtvq"]
@@ -238,7 +240,7 @@ speed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
-texture = ExtResource("2_r7cw0")
+texture = ExtResource("2_i3pqv")
 hframes = 8
 vframes = 2
 
