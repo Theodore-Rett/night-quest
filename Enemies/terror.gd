@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed : float = 75
 @export var stop_distance : float = 45
 @export var detection_distance : float = 400
+@export var max_health : int = 20
+@export var current_health : int = 20
 
 @export var attack_distance : float = 15
 @export var attack_cooldown : float = 5
@@ -14,6 +16,9 @@ extends CharacterBody2D
 @onready var terror_shape: Shape2D = $CollisionShape2D.shape
 
 var attack_timer : float = 0.0
+
+func _ready():
+	add_to_group("enemies")
 
 func _physics_process(_delta):
 	if player:
@@ -56,3 +61,8 @@ func update_animation_parameters(move_input : Vector2):
 func attack() -> void:
 	player.take_damage(attack_amount, global_position)
 	attack_timer = attack_cooldown
+
+func take_damage(amount : int, attacker_position : Vector2 = Vector2.ZERO) -> void:
+	current_health = max(0, current_health - amount)
+	if current_health <= 0:
+		queue_free()

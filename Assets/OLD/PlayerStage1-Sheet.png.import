@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mlw1cho8gwa"
-path="res://.godot/imported/PlayerStage1-Sheet.png-181c6738f87af0b3552240224feac506.ctex"
+uid="uid://vubcpm616ff6"
+path="res://.godot/imported/PlayerStage1-Sheet.png-752110dc4e4b9958f68c6c54b29f1a91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PlayerStage1-Sheet.png"
-dest_files=["res://.godot/imported/PlayerStage1-Sheet.png-181c6738f87af0b3552240224feac506.ctex"]
+source_file="res://Assets/OLD/PlayerStage1-Sheet.png"
+dest_files=["res://.godot/imported/PlayerStage1-Sheet.png-752110dc4e4b9958f68c6c54b29f1a91.ctex"]
 
 [params]
 

@@ -10,16 +10,13 @@ bg_color = Color(0.6509804, 0, 0.13333334, 1)
 
 [node name="PlayerOverlay" type="Camera2D"]
 zoom = Vector2(2, 2)
+limit_enabled = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/MarginContainer"]
-custom_minimum_size = Vector2(400, 50)
-layout_mode = 2
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -458.0
+offset_top = -251.0
+offset_right = -157.0
+offset_bottom = -226.0
 theme_override_styles/background = SubResource("StyleBoxFlat_eiuyv")
 theme_override_styles/fill = SubResource("StyleBoxFlat_al1rw")
 max_value = 50.0
@@ -27,4 +24,3 @@ step = 1.0
 value = 50.0
 show_percentage = false
 script = ExtResource("1_al1rw")
-player = NodePath("../../..")
