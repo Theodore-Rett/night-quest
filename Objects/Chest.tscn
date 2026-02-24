@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bepp2ols8wdda"]
+[gd_scene load_steps=8 format=3 uid="uid://bepp2ols8wdda"]
 
 [ext_resource type="Texture2D" uid="uid://bnxonei35cp6h" path="res://Assets/chest-Sheet.png" id="1_4gslm"]
 [ext_resource type="Script" uid="uid://brj4eq0cffg4g" path="res://Objects/chest.gd" id="1_5udua"]
+[ext_resource type="FontFile" uid="uid://kbglpge6od8h" path="res://Assets/Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="3_7f4fk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5udua"]
 size = Vector2(73, 7.5)
@@ -57,3 +58,13 @@ shape = SubResource("RectangleShape2D_5udua")
 libraries = {
 &"": SubResource("AnimationLibrary_hkml5")
 }
+
+[node name="Label" type="Label" parent="."]
+offset_left = -49.0
+offset_top = -46.0
+offset_right = 49.0
+offset_bottom = -21.0
+theme_override_fonts/font = ExtResource("3_7f4fk")
+theme_override_font_sizes/font_size = 20
+text = "press \"e\""
+horizontal_alignment = 1

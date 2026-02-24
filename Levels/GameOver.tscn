@@ -1,34 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgw8x8lmlp17d"]
+[gd_scene load_steps=6 format=3 uid="uid://dgw8x8lmlp17d"]
 
 [ext_resource type="Script" uid="uid://u5r4b1v7ey1v" path="res://Levels/quit_button.gd" id="1_l8e1j"]
 [ext_resource type="Script" uid="uid://drs34oy0v4smr" path="res://Levels/home_button.gd" id="1_m8yab"]
-
-[sub_resource type="FontFile" id="FontFile_yiddv"]
-cache/0/100/0/ascent = 0.0
-cache/0/100/0/descent = 0.0
-cache/0/100/0/underline_position = 0.0
-cache/0/100/0/underline_thickness = 0.0
-cache/0/100/0/scale = 1.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/120/0/ascent = 0.0
-cache/0/120/0/descent = 0.0
-cache/0/120/0/underline_position = 0.0
-cache/0/120/0/underline_thickness = 0.0
-cache/0/120/0/scale = 1.0
-cache/0/300/0/ascent = 0.0
-cache/0/300/0/descent = 0.0
-cache/0/300/0/underline_position = 0.0
-cache/0/300/0/underline_thickness = 0.0
-cache/0/300/0/scale = 1.0
-cache/0/250/0/ascent = 0.0
-cache/0/250/0/descent = 0.0
-cache/0/250/0/underline_position = 0.0
-cache/0/250/0/underline_thickness = 0.0
-cache/0/250/0/scale = 1.0
+[ext_resource type="Texture2D" uid="uid://bi74kamhc35fr" path="res://Assets/HomeScreen.png" id="1_r1hvp"]
+[ext_resource type="FontFile" uid="uid://bqe01o35ssbbm" path="res://Assets/Fonts/Jacquard_24/Jacquard24-Regular.ttf" id="2_ei71l"]
+[ext_resource type="FontFile" uid="uid://1cvm8jmdxjht" path="res://Assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="3_20ivj"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -38,67 +14,46 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.22930995, 0.1917026, 0.25655144, 1)
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_r1hvp")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-alignment = 1
-size_flags_vertical = 4
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = SubResource("FontFile_yiddv")
-theme_override_font_sizes/font_size = 120
-text = "GAME OVER"
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 111.0
+offset_right = 1917.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("2_ei71l")
+theme_override_font_sizes/font_size = 250
+text = "Game
+Over"
 horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-custom_minimum_size = Vector2(0, 50)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-size_flags_horizontal = 4
-custom_minimum_size = Vector2(0, 100)
-
-[node name="Home_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
+[node name="Home_Button" type="Button" parent="TextureRect"]
 custom_minimum_size = Vector2(300, 80)
-theme_override_font_sizes/font_size = 50
-text = "HOME"
+layout_mode = 0
+offset_left = 644.0
+offset_top = 623.0
+offset_right = 944.0
+offset_bottom = 723.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_20ivj")
+theme_override_font_sizes/font_size = 60
+text = "Home"
 script = ExtResource("1_m8yab")
 
-[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-custom_minimum_size = Vector2(50, 0)
-
-[node name="Quit_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
+[node name="Quit_Button" type="Button" parent="TextureRect"]
 custom_minimum_size = Vector2(300, 80)
-theme_override_font_sizes/font_size = 50
-text = "QUIT GAME"
+layout_mode = 0
+offset_left = 1039.0
+offset_top = 623.0
+offset_right = 1339.0
+offset_bottom = 723.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_20ivj")
+theme_override_font_sizes/font_size = 60
+text = "Quit"
 script = ExtResource("1_l8e1j")
