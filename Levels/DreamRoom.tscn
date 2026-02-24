@@ -584,5 +584,4 @@ attack_cooldown = 1.5
 player = NodePath("../MC")
 
 [node name="MC" parent="." instance=ExtResource("6_ag5rx")]
-attack_range = 50.0
 attack_damage = 5

@@ -13,12 +13,25 @@ extends CharacterBody2D
 @export var player : Node2D
 
 var attack_timer : float = 0.0
+var knockback_timer : float = 0.0
+var knockback_duration : float = 0.0
+var knockback_velocity : Vector2 = Vector2.ZERO
 
 func _ready():
 	add_to_group("enemies")
 
 func _physics_process(_delta):
 	if player:
+		# knockback from any attacks
+		if knockback_timer > 0.0:
+			knockback_timer -= _delta
+			# Ease-out (quadratic): progress from 1 to 0
+			var progress = knockback_timer / knockback_duration
+			var eased_progress = progress * progress
+			velocity = knockback_velocity * eased_progress
+			move_and_slide()
+			return
+
 		# Calculate direction vector towards player
 		var direction = global_position.direction_to(player.global_position)
 		if direction == Vector2.ZERO:
@@ -48,5 +61,12 @@ func attack() -> void:
 
 func take_damage(amount : int, attacker_position : Vector2 = Vector2.ZERO) -> void:
 	current_health = max(0, current_health - amount)
+	knockback(attacker_position, 400)
 	if current_health <= 0:
 		queue_free()
+
+func knockback(attacker_position : Vector2, kb_force : float = 300):
+	knockback_duration = 0.2
+	var kb_direction = (global_position - attacker_position).normalized() * kb_force
+	knockback_velocity = kb_direction
+	knockback_timer = knockback_duration

@@ -121,7 +121,7 @@ func update_animation_parameters(move_input : Vector2):
 		animation_tree.set("parameters/Walk/blend_position", move_input)
 		animation_tree.set("parameters/Attack/blend_position", move_input)
 
-# switches between walk and idel animations
+# switches between walk and idle animations
 func pick_new_state():
 	if(velocity != Vector2.ZERO):
 		state_machine.travel("Walk")
