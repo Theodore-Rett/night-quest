@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://58xgqsee2d14" path="res://Assets/Inventory.png" id="1_3425d"]
 [ext_resource type="FontFile" uid="uid://bqe01o35ssbbm" path="res://Assets/Fonts/Jacquard_24/Jacquard24-Regular.ttf" id="2_gmbn6"]
 [ext_resource type="Texture2D" uid="uid://mlw1cho8gwa" path="res://Assets/PlayerStage1-Sheet.png" id="3_fp6ph"]
-[ext_resource type="Script" path="res://GUI/inventory.gd" id="4_i0j2m"]
 
 [node name="Inventory" type="Control" node_paths=PackedStringArray()]
 script = ExtResource("4_i0j2m")
