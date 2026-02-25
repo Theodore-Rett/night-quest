@@ -12,6 +12,7 @@ Night Quest is a 2D top down adventure game. Inspired by early Zelda games, and 
 
 ## Known Bugs
 - **Stuck Between Wall and Enemy**: At some angles the player can get "pinned" to a wall by an enemy and are unable to move away.
+- **Player Stuck in Place**: The run animation will play on loop, but the player is stuck in a singular location and can take no actions. Cause unknown, but has happened on multiple occasions.
 
 ## Contact Me
 This project was developed by Theodore Rett. If you have any questions please reach out to me on one of the following platforms.

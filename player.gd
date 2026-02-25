@@ -9,7 +9,6 @@ extends CharacterBody2D
 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
-@onready var animation_player = $AnimationPlayer
 
 signal health_changed(new_health : int)
 
@@ -17,12 +16,15 @@ var knockback_timer : float = 0.0
 var knockback_duration : float = 0.0
 var knockback_velocity : Vector2 = Vector2.ZERO
 var is_attacking : bool = false
-var attack_timer : float = 0.0
+var current_attack_animation_name : StringName = &""
 var facing_direction : Vector2 = Vector2(0, 1)
 
 func _ready():
+	add_to_group("player")
 	update_animation_parameters(starting_direction)
 	facing_direction = starting_direction
+	if not animation_tree.animation_finished.is_connected(_on_animation_tree_animation_finished):
+		animation_tree.animation_finished.connect(_on_animation_tree_animation_finished)
 
 func _physics_process(_delta):
 	if knockback_timer > 0.0:
@@ -36,13 +38,8 @@ func _physics_process(_delta):
 		return
 
 	if is_attacking:
-		attack_timer -= _delta
 		velocity = Vector2.ZERO
 		move_and_slide()
-		if attack_timer > 0.0:
-			return
-		is_attacking = false
-		pick_new_state()
 		return
 
 	var input_direction = Vector2(
@@ -80,9 +77,7 @@ func attack():
 	elif attack_direction.y < 0:
 		attack_animation_name = "attack_back"
 
-	var selected_attack_animation = animation_player.get_animation(attack_animation_name)
-	attack_timer = selected_attack_animation.length if selected_attack_animation else 0.1
-
+	current_attack_animation_name = StringName(attack_animation_name)
 	update_animation_parameters(attack_direction)
 	state_machine.travel("Attack")
 	is_attacking = true
@@ -111,6 +106,14 @@ func attack():
 		return
 
 	best_target.take_damage(attack_damage, global_position)
+
+func _on_animation_tree_animation_finished(anim_name : StringName) -> void:
+	if not is_attacking:
+		return
+	if anim_name != current_attack_animation_name:
+		return
+	is_attacking = false
+	pick_new_state()
 	
 
 func update_animation_parameters(move_input : Vector2):

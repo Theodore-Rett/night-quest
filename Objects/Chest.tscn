@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bepp2ols8wdda"]
+[gd_scene load_steps=13 format=3 uid="uid://bepp2ols8wdda"]
 
 [ext_resource type="Texture2D" uid="uid://bnxonei35cp6h" path="res://Assets/chest-Sheet.png" id="1_4gslm"]
 [ext_resource type="Script" uid="uid://brj4eq0cffg4g" path="res://Objects/chest.gd" id="1_5udua"]
@@ -43,6 +43,24 @@ _data = {
 &"open_chest": SubResource("Animation_4gslm")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_closed"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_open"]
+animation = &"open_chest"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_start"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_open"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_chest"]
+states/Closed/node = SubResource("AnimationNodeAnimation_closed")
+states/Closed/position = Vector2(200, 90)
+states/Open/node = SubResource("AnimationNodeAnimation_open")
+states/Open/position = Vector2(360, 90)
+transitions = [&"Start", &"Closed", SubResource("AnimationNodeStateMachineTransition_start"), &"Closed", &"Open", SubResource("AnimationNodeStateMachineTransition_open")]
+
 [node name="Chest" type="StaticBody2D"]
 script = ExtResource("1_5udua")
 
@@ -58,6 +76,11 @@ shape = SubResource("RectangleShape2D_5udua")
 libraries = {
 &"": SubResource("AnimationLibrary_hkml5")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_chest")
+anim_player = NodePath("../AnimationPlayer")
+active = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = -49.0
