@@ -7,13 +7,15 @@ The **File Structure** section outlines where things in the project are sorted, 
 
 ## File Structure
 - Assets
-    - Aseprite - contains all raw aseprite project files
     - Entity
         - Enemy
         - Player
         - NPC
+    - Fonts
     - Objects
     - World
+        - Background
+        - Tiles
 - Documentation
 - Scripts
     - Entity
