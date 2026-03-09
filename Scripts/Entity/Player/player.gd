@@ -138,7 +138,7 @@ func take_damage(amount : int, attacker_position : Vector2 = Vector2.ZERO) -> vo
 	
 	# Check if player died
 	if current_health <= 0:
-		get_tree().change_scene_to_file("res://Levels/GameOver.tscn")
+		get_tree().change_scene_to_file("res://Scenes/World/Screens/GameOver.tscn")
 
 func heal(amount : int) -> void:
 	current_health = min(max_health, current_health + amount)
