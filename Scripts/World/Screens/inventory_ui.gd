@@ -19,8 +19,12 @@ func _process(delta):
 			close()
 		else:
 			open()
+
+	if is_open:
+		update_slots()
 	
 func open():
+	update_slots()
 	visible = true
 	is_open = true
 	

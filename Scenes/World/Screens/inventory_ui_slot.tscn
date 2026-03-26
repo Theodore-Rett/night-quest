@@ -15,4 +15,12 @@ position = Vector2(-24, -24)
 texture = ExtResource("1_3m56i")
 centered = false
 
-[node name="item_display" type="Sprite2D" parent="." unique_id=1379382710]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=971844644]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=1530115807]
+layout_mode = 2
+
+[node name="item_display" type="Sprite2D" parent="CenterContainer/Panel" unique_id=1379382710]
