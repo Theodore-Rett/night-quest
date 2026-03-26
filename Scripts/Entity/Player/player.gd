@@ -41,6 +41,7 @@ func _physics_process(_delta):
 	if is_attacking:
 		velocity = Vector2.ZERO
 		move_and_slide()
+		pick_new_state()
 		return
 
 	var input_direction = Vector2(
@@ -50,6 +51,7 @@ func _physics_process(_delta):
 
 	if Input.is_action_just_pressed("attack"):
 		attack()
+		pick_new_state()
 		return
 	
 	update_animation_parameters(input_direction)
@@ -127,7 +129,16 @@ func update_animation_parameters(move_input : Vector2):
 
 # switches between walk and idle animations
 func pick_new_state():
-	if(velocity != Vector2.ZERO):
+	if is_attacking:
+		state_machine.travel("Attack")
+		return
+
+	var input_direction = Vector2(
+		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	).normalized()
+
+	if(input_direction != Vector2.ZERO):
 		state_machine.travel("Walk")
 	else:
 		state_machine.travel("Idle")

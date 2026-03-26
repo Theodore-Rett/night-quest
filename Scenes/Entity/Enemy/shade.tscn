@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cwy7n4wglyq1i" path="res://Scripts/Entity/Enemy/shade.gd" id="1_s3e5b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0kj4"]
-size = Vector2(34, 29)
+size = Vector2(49, 41)
 
 [sub_resource type="Animation" id="Animation_s3e5b"]
 length = 0.001
@@ -55,22 +55,20 @@ states/bounce_move/node = SubResource("AnimationNodeAnimation_i0kj4")
 states/bounce_move/position = Vector2(311, 100)
 transitions = ["Start", "bounce_move", SubResource("AnimationNodeStateMachineTransition_s3e5b")]
 
-[node name="Shade" type="CharacterBody2D"]
+[node name="Shade" type="CharacterBody2D" unique_id=82807908]
 script = ExtResource("1_s3e5b")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=644849719]
 texture = ExtResource("1_i0kj4")
 hframes = 13
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 14.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1246545507]
+position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_i0kj4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_pptdv")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1520430104]
+libraries/ = SubResource("AnimationLibrary_pptdv")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1961978179]
 tree_root = SubResource("AnimationNodeStateMachine_pptdv")
 anim_player = NodePath("../AnimationPlayer")
