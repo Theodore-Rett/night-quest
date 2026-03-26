@@ -56,9 +56,34 @@ func _open_chest() -> void:
 	if open_animation:
 		open_duration = open_animation.length
 	await get_tree().create_timer(open_duration).timeout
+	
+	_transfer_loot_to_player()
+	
 	chest_state = CHEST_STATE.LOOTED
 	is_opening = false
 	_update_prompt_visibility()
+
+
+func _transfer_loot_to_player() -> void:
+	if player == null or not is_instance_valid(player):
+		return
+	
+	if not player.has_meta("inv") and player.inv == null:
+		return
+	
+	var loot_item := InventoryItem.new()
+	loot_item.name = "%s x%d" % [_get_loot_type_name(), loot_amount]
+	loot_item.texture = null
+	
+	player.inv.items.append(loot_item)
+
+
+func _get_loot_type_name() -> String:
+	match loot_type:
+		LOOT_TYPE.GOLD:
+			return "Gold"
+		_:
+			return "Unknown"
 
 
 func _update_prompt_visibility() -> void:
