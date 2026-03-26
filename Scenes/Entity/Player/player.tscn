@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bxke47p8qi45f"]
 
 [ext_resource type="Script" uid="uid://ell5iko0uq7n" path="res://Scripts/Entity/Player/player.gd" id="1_r7cw0"]
+[ext_resource type="Resource" uid="uid://ut86n8c87iy" path="res://Resources/inventory_player.tres" id="2_10twy"]
 [ext_resource type="Texture2D" uid="uid://mlw1cho8gwa" path="res://Assets/Entity/Player/Stage One/PlayerStage1-Sheet.png" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://bfcf7wudmwlqh" path="res://Scenes/Entity/Player/PlayerOverlay.tscn" id="3_dkpq6"]
+[ext_resource type="PackedScene" uid="uid://bhu666l2hvjdy" path="res://Scenes/World/Screens/Inventory.tscn" id="5_m6mwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkpq6"]
 size = Vector2(24, 47)
@@ -335,6 +337,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [node name="player" type="CharacterBody2D" unique_id=1447076658]
 script = ExtResource("1_r7cw0")
 speed = 200.0
+inv = ExtResource("2_10twy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1371667220]
 position = Vector2(-1, 0)
@@ -357,3 +360,9 @@ parameters/Idle/blend_position = Vector2(-0.0016920567, 0.002439022)
 parameters/Walk/blend_position = Vector2(0, 1.5)
 
 [node name="PlayerOverlay" parent="." unique_id=769711437 instance=ExtResource("3_dkpq6")]
+
+[node name="Inventory" parent="." unique_id=1693996462 instance=ExtResource("5_m6mwm")]
+offset_left = -146.0
+offset_top = -136.0
+offset_right = 146.0
+offset_bottom = 136.0

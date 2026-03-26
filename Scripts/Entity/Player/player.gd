@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var current_health : int = 50
 @export var attack_range : float = 80.0
 @export var attack_damage : int = 10
+@export var inv: Inventory
 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
