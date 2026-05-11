@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bisrid6ixjjta" path="res://Assets/Entity/Enemy/Shade/shade-Sheet.png" id="1_i0kj4"]
 [ext_resource type="Script" uid="uid://cwy7n4wglyq1i" path="res://Scripts/Entity/Enemy/shade.gd" id="1_s3e5b"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/splat.mp3" id="2_splat"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0kj4"]
 size = Vector2(49, 41)
@@ -57,6 +58,7 @@ transitions = ["Start", "bounce_move", SubResource("AnimationNodeStateMachineTra
 
 [node name="Shade" type="CharacterBody2D" unique_id=82807908]
 script = ExtResource("1_s3e5b")
+default_move_stream = ExtResource("2_splat")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=644849719]
 texture = ExtResource("1_i0kj4")
@@ -72,3 +74,6 @@ libraries/ = SubResource("AnimationLibrary_pptdv")
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1961978179]
 tree_root = SubResource("AnimationNodeStateMachine_pptdv")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="MoveAudio" type="AudioStreamPlayer2D" parent="." unique_id=1463604832]
+volume_db = -8.0

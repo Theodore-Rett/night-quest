@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dialoguebox"]
+
+[ext_resource type="Script" uid="uid://btnjjlt38rxar" path="res://Scripts/World/Screens/dialogue_controller.gd" id="1"]
+
+[node name="DialogueBox" type="Node2D" unique_id=706601421]
+script = ExtResource("1")
+
+[node name="Panel" type="Panel" parent="." unique_id=2009546806]
+visible = false
+custom_minimum_size = Vector2(760, 180)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -204.0
+offset_right = -24.0
+offset_bottom = -24.0
+
+[node name="ContentMargin" type="MarginContainer" parent="Panel" unique_id=558532213]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+
+[node name="Content" type="HBoxContainer" parent="Panel/ContentMargin" unique_id=877256484]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Portrait" type="TextureRect" parent="Panel/ContentMargin/Content" unique_id=558532214]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+stretch_mode = 5
+
+[node name="TextColumn" type="VBoxContainer" parent="Panel/ContentMargin/Content" unique_id=877256485]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="SpeakerName" type="Label" parent="Panel/ContentMargin/Content/TextColumn" unique_id=1511489450]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SPEAKER NAME"
+
+[node name="DialogueText" type="RichTextLabel" parent="Panel/ContentMargin/Content/TextColumn" unique_id=951280561]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true

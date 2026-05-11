@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bfcf7wudmwlqh"]
 
 [ext_resource type="Script" uid="uid://ct3xci0lyptjs" path="res://Scripts/Entity/Player/health_bar.gd" id="1_al1rw"]
+[ext_resource type="Script" uid="uid://btnjjlt38rxar" path="res://Scripts/World/Screens/dialogue_controller.gd" id="2_dboxscr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiuyv"]
 bg_color = Color(0.6, 0.6, 0.6, 0.4862745)
@@ -8,11 +9,12 @@ bg_color = Color(0.6, 0.6, 0.6, 0.4862745)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al1rw"]
 bg_color = Color(0.6509804, 0, 0.13333334, 1)
 
-[node name="PlayerOverlay" type="Camera2D"]
+[node name="PlayerOverlay" type="Camera2D" unique_id=1290174709]
+current = true
 zoom = Vector2(2, 2)
 limit_enabled = false
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1010797337]
 offset_left = -458.0
 offset_top = -251.0
 offset_right = -157.0
@@ -24,3 +26,59 @@ step = 1.0
 value = 50.0
 show_percentage = false
 script = ExtResource("1_al1rw")
+
+[node name="DialougeBoxInstance" type="Node2D" parent="." unique_id=429729710]
+position = Vector2(-380, 255)
+script = ExtResource("2_dboxscr")
+
+[node name="Panel" type="Panel" parent="DialougeBoxInstance" unique_id=1496805029]
+visible = false
+custom_minimum_size = Vector2(760, 180)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -204.0
+offset_right = -24.0
+offset_bottom = -24.0
+
+[node name="ContentMargin" type="MarginContainer" parent="DialougeBoxInstance/Panel" unique_id=1155405060]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+
+[node name="Content" type="HBoxContainer" parent="DialougeBoxInstance/Panel/ContentMargin" unique_id=2089090984]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Portrait" type="TextureRect" parent="DialougeBoxInstance/Panel/ContentMargin/Content" unique_id=1090123723]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+stretch_mode = 5
+
+[node name="TextColumn" type="VBoxContainer" parent="DialougeBoxInstance/Panel/ContentMargin/Content" unique_id=1942820134]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="SpeakerName" type="Label" parent="DialougeBoxInstance/Panel/ContentMargin/Content/TextColumn" unique_id=588897478]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SPEAKER NAME"
+
+[node name="DialogueText" type="RichTextLabel" parent="DialougeBoxInstance/Panel/ContentMargin/Content/TextColumn" unique_id=1803607957]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true

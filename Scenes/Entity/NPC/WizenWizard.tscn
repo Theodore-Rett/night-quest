@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bvcgl34op6crc"]
+
+[ext_resource type="Texture2D" uid="uid://bfqcfbqdvbwcn" path="res://Assets/Entity/NPC/The Wizen Wizard/TheWizenWizard.png" id="1_n4r17"]
+[ext_resource type="Script" uid="uid://2mis2616vsre" path="res://Scripts/Entity/NPC/wizen_wizard_dialogue.gd" id="2_wizscr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kfks"]
+size = Vector2(41, 36)
+
+[node name="WizenWizard" type="Node2D" unique_id=872021777]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=299753767]
+script = ExtResource("2_wizscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=393281986]
+texture = ExtResource("1_n4r17")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1389842538]
+position = Vector2(-0.5, 12)
+shape = SubResource("RectangleShape2D_4kfks")

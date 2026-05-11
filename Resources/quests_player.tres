@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestLog" format=3 uid="uid://ctw06oqg4qj37"]
+
+[ext_resource type="Resource" uid="uid://cdurgw5djjges" path="res://Resources/Quests/escape.tres" id="1_escape"]
+[ext_resource type="Script" uid="uid://bjut8ko0prq37" path="res://Scripts/Objects/quest.gd" id="1_jad8f"]
+[ext_resource type="Script" uid="uid://drnnqd76ww5hd" path="res://Scripts/Objects/quest_log.gd" id="2_log"]
+
+[resource]
+script = ExtResource("2_log")
+quests = Array[ExtResource("1_jad8f")]([ExtResource("1_escape")])

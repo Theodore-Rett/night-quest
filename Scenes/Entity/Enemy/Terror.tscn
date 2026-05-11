@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://phtnnnj1ls1s" path="res://Scripts/Entity/Enemy/terror.gd" id="1_u247s"]
 [ext_resource type="Texture2D" uid="uid://cx5a636e7iaf3" path="res://Assets/Entity/Enemy/Terror/terror-Sheet.png" id="2_8ynbn"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/stone scrape.mp3" id="3_stonescrape"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ynbn"]
 size = Vector2(45, 55)
@@ -124,6 +125,7 @@ transitions = ["Start", "float", SubResource("AnimationNodeStateMachineTransitio
 
 [node name="Terror" type="CharacterBody2D"]
 script = ExtResource("1_u247s")
+default_move_stream = ExtResource("3_stonescrape")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_8ynbn")
@@ -142,3 +144,6 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_lq5e7")
 anim_player = NodePath("../AnimationPlayer")
 parameters/float/blend_position = Vector2(0, 0)
+
+[node name="MoveAudio" type="AudioStreamPlayer2D" parent="."]
+volume_db = -8.0
